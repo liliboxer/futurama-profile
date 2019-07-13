@@ -17,4 +17,15 @@ describe('futurama', () => {
         });
       });
   });
+  it('get profile', () => {
+    return request(app)
+      .get('/api/v1/profiles')
+      .then(res => {
+        expect(res.body).toEqual([{ 
+          name: 'lili', 
+          favoriteCharacter: 'Leela',
+          tagline: expect.any(String)
+        }]);
+      });
+  });
 });
