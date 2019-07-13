@@ -39,4 +39,20 @@ describe('futurama', () => {
         });
       });
   });
+  it('update favorite character only', () => {
+    return request(app)
+      .patch('/api/v1/profiles/0')
+      .send({ 
+        favoriteCharacter: 'Bender'
+      })
+      .then(res => {
+        expect(res.body).toEqual({ 
+          name: 'lili', 
+          favoriteCharacter: 'Bender',
+          tagline: expect.any(String)
+        });
+      });
+  });
 });
+
+
