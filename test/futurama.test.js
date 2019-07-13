@@ -53,6 +53,19 @@ describe('futurama', () => {
         });
       });
   });
+  it('deletes a profile by index', () => {
+    return request(app)
+      .delete('/api/v1/profiles/0')
+      .then(res => {
+        // send back the object that was deleted
+        expect(res.body).toEqual({
+          name: 'lili', 
+          favoriteCharacter: 'Bender',
+          tagline: expect.any(String)
+        });
+      });
+  });
+  
 });
 
 
