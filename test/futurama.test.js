@@ -28,4 +28,15 @@ describe('futurama', () => {
         }]);
       });
   });
+  it('get profile by index', () => {
+    return request(app)
+      .get('/api/v1/profiles/0')
+      .then(res => {
+        expect(res.body).toEqual({ 
+          name: 'lili', 
+          favoriteCharacter: 'Leela',
+          tagline: expect.any(String)
+        });
+      });
+  });
 });
