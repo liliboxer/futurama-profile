@@ -7,12 +7,13 @@ describe('futurama', () => {
       .post('/api/v1/profiles')
       .send({ 
         name: 'lili', 
-        favoriteCharacter: 'lila'
+        favoriteCharacter: 'Leela'
       })
       .then(res => {
         expect(res.body).toEqual({ 
           name: 'lili', 
-          favoriteCharacter: 'lila'
+          favoriteCharacter: 'Leela',
+          tagline: expect.any(String)
         });
       });
   });
